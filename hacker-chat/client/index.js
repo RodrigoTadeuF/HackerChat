@@ -1,10 +1,30 @@
+#!/usr/bin/env node
+
+
 /*
+
+    chmod +x index.js
+
+*/
+
+/*
+
+npm i -g @erickwendel/hacker-chat-client
+
+npm unlink -g @erickwendel/hacker-chat-client
+hacker-chat \
+    --username erickwendel \
+    --room sala01
+
+./index.js \
+    --username erickwendel \
+    --room sala01
+
 node index.js \
     --username erickwendel \
     --room sala01 \
     --hostUri localhost
 */
-
 
 import Events from 'events'
 import CliConfig from './src/cliConfig.js';
