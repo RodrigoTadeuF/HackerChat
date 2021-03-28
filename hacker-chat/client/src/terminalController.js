@@ -25,7 +25,7 @@ export default class TerminalController {
     #onInputReceived(eventEmitter) {
         return function () {
             const message = this.getValue()
-            console.log(message)
+            eventEmitter.emit(constants.events.app.MESSAGE_SENT, message)
             this.clearValue()
         }
     }
@@ -44,6 +44,9 @@ export default class TerminalController {
     #onLogChanged({ screen, activityLog }) {
 
         return msg => {
+            // erickwendel left
+            // erickwendel join
+
             const [userName] = msg.split(/\s/)
             const collor = this.#getUserCollor(userName)
             activityLog.addItem(`{${collor}}{bold}${msg.toString()}{/}`)
@@ -53,6 +56,7 @@ export default class TerminalController {
     }
     #onStatusChanged({ screen, status }) {
 
+        // [ 'erickwendel', 'mariazinha']
         return users => {
 
             // vamos pegar o primeiro elemento da lista
@@ -76,7 +80,7 @@ export default class TerminalController {
     }
     async initializeTable(eventEmitter) {
         const components = new ComponentsBuilder()
-            .setScreen({ title: 'HackerChat - Rodrigo Tadeu' })
+            .setScreen({ title: 'HackerChat - Erick Wendel' })
             .setLayoutComponent()
             .setInputComponent(this.#onInputReceived(eventEmitter))
             .setChatComponent()
